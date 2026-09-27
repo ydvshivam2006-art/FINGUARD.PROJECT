@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Schema Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">
+            Dashboard
+        </a>
+        <a href="/pages/defense-lab.html">
+            Defense & UPI Lab
+        </a>
+
+        <a href="/pages/schema-analyzer.html">
+            Schema Analyzer
+        </a>
+
+        <a href="/pages/transactions.html">
+            Transactions
+        </a>
+
+        <a href="/pages/profile.html">
+            Profile
+        </a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Database Schema Analyzer
+        </h1>
+
+        <form
+            id="schemaForm"
+            class="form"
+        >
+
+            <div class="field">
+
+                <label>
+                    Enter tables
+                </label>
+
+                <textarea
+                    name="schema"
+                    rows="10"
+                    placeholder="users: user_id PK, name, email
+accounts: account_id PK, user_id FK
+transactions: transaction_id PK, account_id FK"
+                ></textarea>
+
+            </div>
+
+            <button
+                class="button"
+                type="submit"
+            >
+                Analyze Schema
+            </button>
+
+        </form>
+
+        <div
+            id="schemaResult"
+            class="risk-result"
+        ></div>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/schema-analyzer.js"></script>
+
+</body>
+
+</html>

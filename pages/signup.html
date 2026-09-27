@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinGuard - Create Account</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<main class="auth-page">
+    <section class="auth-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <div class="brand">
+                <span style="font-size: 24px;">🛡️</span> FinGuard
+            </div>
+            <span style="font-size: 11px; padding: 4px 8px; border-radius: 6px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399;">
+                New Registration
+            </span>
+        </div>
+
+        <p style="margin: 0 0 20px 0; color: #94a3b8; font-size: 13px;">
+            Create your account to start anomaly defense & expense monitoring
+        </p>
+
+        <form id="signupForm" class="form">
+            <div class="field">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="e.g. Shivam Yadav"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label>Email Address</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="shivam@example.com"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label>Phone Number</label>
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="+91 98765 43210"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label>Password (min 6 characters)</label>
+                <input
+                    type="password"
+                    name="password"
+                    minlength="6"
+                    placeholder="••••••••"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="button" style="width: 100%;">
+                Create Account
+            </button>
+        </form>
+
+        <p id="msg" class="msg"></p>
+
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #1e293b; display: flex; flex-direction: column; gap: 10px; text-align: center; font-size: 13px; color: #94a3b8;">
+            <div>
+                Already have an account?
+                <a href="/pages/login.html" style="color: #38bdf8; font-weight: 600; margin-left: 4px;">
+                    Sign In
+                </a>
+            </div>
+            <div>
+                <a href="/pages/home.html" style="color: #64748b; font-size: 12px;">
+                    ← Back to Landing / Home
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="/js/auth.js"></script>
+</body>
+</html>

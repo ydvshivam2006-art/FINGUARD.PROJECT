@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Risk Check</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">
+            Dashboard
+        </a>
+        <a href="/pages/defense-lab.html">
+            Defense & UPI Lab
+        </a>
+
+        <a href="/pages/risk-check.html">
+            Risk Check
+        </a>
+
+        <a href="/pages/scam-analyzer.html">
+            Scam Analyzer
+        </a>
+
+        <a href="/pages/security_alert.html">
+            Alerts
+        </a>
+
+        <a href="/pages/transactions.html">
+            Transactions
+        </a>
+
+        <a href="/pages/budget.html">
+            Budget
+        </a>
+
+        <a href="/pages/analytics.html">
+            Analytics
+        </a>
+
+        <a href="/pages/profile.html">
+            Profile
+        </a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Quick Risk Check
+        </h1>
+
+        <p>
+            Enter non-sensitive transaction
+            information.
+        </p>
+
+        <form
+            id="riskForm"
+            class="form"
+        >
+
+            <div class="field">
+
+                <label>
+                    Transaction Amount
+                </label>
+
+                <input
+                    type="number"
+                    name="amount"
+                    min="0"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="newRecipient"
+                    >
+
+                    New recipient
+                </label>
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="urgent"
+                    >
+
+                    Someone is pressuring me
+                    to pay urgently
+                </label>
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="unknown"
+                    >
+
+                    Recipient is unknown
+                    or unverified
+                </label>
+
+            </div>
+
+            <button
+                class="button"
+                type="submit"
+            >
+                Check Risk
+            </button>
+
+        </form>
+
+        <div
+            id="riskResult"
+            class="risk-result"
+        >
+            Result will appear here.
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/risk.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinGuard - Defense & UPI Lab</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-private="true">
+
+<header class="top">
+    <div class="brand">FinGuard</div>
+    <nav class="nav">
+        <a href="/index.html">Dashboard</a>
+        <a href="/pages/defense-lab.html" class="active">Defense & UPI Lab</a>
+        <a href="/pages/risk-check.html">Risk Check</a>
+        <a href="/pages/scam-analyzer.html">Scam Analyzer</a>
+        <a href="/pages/security_alert.html">Security Alerts</a>
+        <a href="/pages/transactions.html">Transactions</a>
+        <a href="/pages/budget.html">Budget</a>
+        <a href="/pages/analytics.html">Analytics</a>
+        <a href="/pages/profile.html">Profile</a>
+        <button id="logoutBtn" class="logout">Logout</button>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h1>Defense Lab & UPI Inspector</h1>
+        <p>Advanced forensics: Inspect raw UPI payment strings, test social engineering attacks, and generate formal 1930 Cyber FIR complaints.</p>
+    </section>
+
+    <!-- Sub-tab Selector -->
+    <div style="display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;">
+        <button id="btnTabUpi" class="btn" style="background:#0284c7;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold;">1. UPI & QR Payload Inspector</button>
+        <button id="btnTabSim" class="btn" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;padding:10px 18px;border-radius:8px;cursor:pointer;">2. Phishing Attack Simulator</button>
+        <button id="btnTabFir" class="btn" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;padding:10px 18px;border-radius:8px;cursor:pointer;">3. Cyber FIR (1930) Generator</button>
+        <button id="btnTabMule" class="btn" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;padding:10px 18px;border-radius:8px;cursor:pointer;">4. Mule Account Matrix & 1930 Golden Hour</button>
+    </div>
+
+    <!-- SECTION 1: UPI INSPECTOR -->
+    <div id="sectionUpi" class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="card">
+            <h3>Raw UPI / QR Payload Input</h3>
+            <p style="font-size:12px;color:#94a3b8;margin-bottom:12px;">Paste any UPI payment link, QR string (<code>upi://pay?pa=...</code>), or direct VPA handle.</p>
+            <textarea id="upiInput" rows="4" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;border-radius:8px;padding:10px;color:#38bdf8;font-family:monospace;font-size:13px;resize:vertical;">upi://pay?pa=msedcl.bijli.bill@ybl&pn=MSEDCL%20Power%20Officer&am=1450.00&tn=Electricity%20cut%20fine%20enter%20pin</textarea>
+
+            <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;">
+                <button id="btnInspectUpi" style="background:#0284c7;color:white;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;">Inspect Payload</button>
+            </div>
+
+            <div style="margin-top:20px;border-top:1px solid #334155;padding-top:14px;">
+                <h4 style="font-size:13px;color:#94a3b8;margin:0 0 10px 0;">1-Click Preset Attacks:</h4>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <button class="presetBtn" data-val="upi://pay?pa=msedcl.bijli.bill@ybl&pn=MSEDCL%20Officer&am=1450.00&tn=Disconnection%20fine%20enter%20pin" style="text-align:left;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:#f8fafc;font-size:12px;cursor:pointer;">⚡ Fake Electricity Disconnection VPA (Personal @ybl)</button>
+                    <button class="presetBtn" data-val="upi://pay?pa=buyer.advance.olx@okhdfcbank&pn=Army%20Buyer&am=12000.00&tn=Scan%20QR%20and%20enter%20UPI%20PIN%20to%20RECEIVE%20money" style="text-align:left;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:#f8fafc;font-size:12px;cursor:pointer;">💸 OLX Reverse QR "Enter PIN to Receive Money" Trap</button>
+                    <button class="presetBtn" data-val="upi://pay?pa=irctc.pay@icici&pn=IRCTC%20Official&am=850.00&tn=Ticket%20Booking&mc=4112" style="text-align:left;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:#f8fafc;font-size:12px;cursor:pointer;">✅ Legitimate Merchant (IRCTC with MCC 4112)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="upiResultCard">
+            <h3>Heuristic Forensics Outcome</h3>
+            <div id="upiOutcome" style="margin-top:10px;font-size:13px;color:#94a3b8;">
+                Click "Inspect Payload" to evaluate the UPI parameters.
+            </div>
+            <div id="upiAlertAction" style="margin-top:16px;display:none;">
+                <button id="btnSaveUpiAlert" style="background:#e11d48;color:white;border:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:bold;cursor:pointer;">Log Incident to Security Alerts</button>
+                <span id="upiAlertNotice" style="margin-left:10px;font-size:12px;color:#34d399;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: ATTACK SIMULATOR -->
+    <div id="sectionSim" class="grid" style="grid-template-columns: 1fr 2fr; gap: 20px; display:none;">
+        <div class="card">
+            <h3>Threat Scenarios</h3>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+                <button class="simBtn active" data-id="electricity" style="text-align:left;background:#0284c7;color:white;border:none;padding:10px;border-radius:6px;cursor:pointer;font-size:13px;">1. Electricity Power Cut (.APK drop)</button>
+                <button class="simBtn" data-id="telegram" style="text-align:left;background:#0f172a;color:#94a3b8;border:1px solid #334155;padding:10px;border-radius:6px;cursor:pointer;font-size:13px;">2. Telegram Video Like "Task Scam"</button>
+                <button class="simBtn" data-id="kyc" style="text-align:left;background:#0f172a;color:#94a3b8;border:1px solid #334155;padding:10px;border-radius:6px;cursor:pointer;font-size:13px;">3. Bank Account Block / PAN-KYC Link</button>
+                <button class="simBtn" data-id="olx" style="text-align:left;background:#0f172a;color:#94a3b8;border:1px solid #334155;padding:10px;border-radius:6px;cursor:pointer;font-size:13px;">4. Marketplace QR Reverse Collect</button>
+            </div>
+        </div>
+
+        <div class="card" id="simDetailCard">
+            <!-- Details rendered by JS -->
+        </div>
+    </div>
+
+    <!-- SECTION 3: CYBER FIR GENERATOR -->
+    <div id="sectionFir" class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; display:none;">
+        <div class="card">
+            <h3>Incident Parameters</h3>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:12px;">
+                <div>
+                    <label style="color:#94a3b8;display:block;margin-bottom:4px;">Complainant Name</label>
+                    <input id="firName" type="text" value="User" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:white;">
+                </div>
+                <div>
+                    <label style="color:#94a3b8;display:block;margin-bottom:4px;">Victim Contact Phone</label>
+                    <input id="firPhone" type="text" value="9876543210" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:white;">
+                </div>
+                <div>
+                    <label style="color:#94a3b8;display:block;margin-bottom:4px;">Loss Amount (INR)</label>
+                    <input id="firLoss" type="number" value="1450" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:white;">
+                </div>
+                <div>
+                    <label style="color:#94a3b8;display:block;margin-bottom:4px;">Suspect Phone / UPI ID / URL</label>
+                    <input id="firSuspect" type="text" value="UPI: msedcl.bijli.bill@ybl / Mobile: +91 98765 43210" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:white;">
+                </div>
+                <div>
+                    <label style="color:#94a3b8;display:block;margin-bottom:4px;">Brief Narration</label>
+                    <textarea id="firNotes" rows="3" style="width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;padding:8px;border-radius:6px;color:white;">I received a fraudulent SMS threatening electricity disconnection within 45 mins. A fake UPI/APK was sent which resulted in unauthorized debit.</textarea>
+                </div>
+                <button id="btnGenerateFir" style="background:#0284c7;color:white;border:none;padding:10px;border-radius:6px;font-weight:bold;cursor:pointer;margin-top:6px;">Update FIR Draft</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <h3 style="margin:0;">Formatted Legal Complaint (IT Act 2000 & IPC)</h3>
+                <button id="btnCopyFir" style="background:#1e293b;border:1px solid #334155;color:white;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;">Copy Text</button>
+            </div>
+            <pre id="firDraft" style="background:#0f172a;border:1px solid #334155;padding:12px;border-radius:8px;font-size:11px;color:#94a3b8;white-space:pre-wrap;max-height:360px;overflow-y:auto;font-family:monospace;line-height:1.5;"></pre>
+        </div>
+    </div>
+
+    <!-- SECTION 4: MULE ACCOUNT MATRIX -->
+    <div id="sectionMule" class="card" style="display:none; flex-direction:column; gap:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div>
+                <h3 style="margin:0 0 4px 0;">Mule Account Layering Matrix & 1930 Golden Hour Model</h3>
+                <p style="font-size:12px;color:#94a3b8;margin:0;">Multi-hop fund tracking across wallets, shell accounts, and ATM cashout nexuses.</p>
+            </div>
+            <button id="btnTriggerLien" style="background:#e11d48;color:white;border:none;padding:10px 18px;border-radius:6px;font-weight:bold;cursor:pointer;">Simulate 1930 Inter-Bank Lien Freeze</button>
+        </div>
+
+        <div style="background:#0f172a;border:1px solid #0284c7;padding:12px;border-radius:8px;font-size:12px;color:#38bdf8;">
+            <strong>CFCFRMS Section 91 CrPC Protocol:</strong> Reporting to cyber helpline 1930 within 2 hours enables real-time inter-bank liens before cash is withdrawn.
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:14px;">
+            <div style="background:#020617;border:1px solid #334155;padding:14px;border-radius:8px;">
+                <div style="font-size:10px;color:#94a3b8;font-family:monospace;">HOP 0: ORIGIN</div>
+                <div style="font-size:13px;font-weight:bold;color:#f8fafc;margin:4px 0;">Victim HDFC Account</div>
+                <div style="font-size:14px;font-weight:bold;color:#f43f5e;font-family:monospace;">-₹65,000.00</div>
+                <div style="font-size:11px;color:#64748b;margin-top:6px;">am=0 collect mandate authorized</div>
+            </div>
+
+            <div id="muleHop1" style="background:#020617;border:1px solid #eab308;padding:14px;border-radius:8px;">
+                <div style="font-size:10px;color:#eab308;font-family:monospace;">HOP 1: L1 MULE</div>
+                <div style="font-size:13px;font-weight:bold;color:#f8fafc;margin:4px 0;">Paytm Mule Wallet</div>
+                <div style="font-size:14px;font-weight:bold;color:#eab308;font-family:monospace;">₹65,000.00</div>
+                <div id="hop1Status" style="font-size:11px;color:#eab308;margin-top:6px;">Held 4m before split</div>
+            </div>
+
+            <div id="muleHop2" style="background:#020617;border:1px solid #e11d48;padding:14px;border-radius:8px;">
+                <div style="font-size:10px;color:#e11d48;font-family:monospace;">HOP 2: L2 MULE</div>
+                <div style="font-size:13px;font-weight:bold;color:#f8fafc;margin:4px 0;">Canara MSME Shell Account</div>
+                <div style="font-size:14px;font-weight:bold;color:#f8fafc;font-family:monospace;">₹40,000 + ₹25,000</div>
+                <div id="hop2Status" style="font-size:11px;color:#f43f5e;margin-top:6px;">Fake GST shell account</div>
+            </div>
+
+            <div id="muleHop3" style="background:#020617;border:1px solid #a855f7;padding:14px;border-radius:8px;">
+                <div style="font-size:10px;color:#a855f7;font-family:monospace;">HOP 3: EXFILTRATION</div>
+                <div style="font-size:13px;font-weight:bold;color:#f8fafc;margin:4px 0;">Jamtara ATM Hub / P2P</div>
+                <div id="hop3Amount" style="font-size:14px;font-weight:bold;color:#f43f5e;font-family:monospace;">CASHED OUT</div>
+                <div id="hop3Status" style="font-size:11px;color:#94a3b8;margin-top:6px;">Cardless cashout nexus</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/restore.js"></script>
+<script src="/js/defense-lab.js"></script>
+</body>
+</html>

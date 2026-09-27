@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Scam Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">Dashboard</a>
+        <a href="/pages/defense-lab.html">Defense & UPI Lab</a>
+        <a href="/pages/risk-check.html">Risk Check</a>
+        <a href="/pages/scam-analyzer.html">Scam Analyzer</a>
+        <a href="/pages/security_alert.html">Alerts</a>
+        <a href="/pages/transactions.html">Transactions</a>
+        <a href="/pages/budget.html">Budget</a>
+        <a href="/pages/analytics.html">Analytics</a>
+        <a href="/pages/profile.html">Profile</a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Scam Situation Analyzer
+        </h1>
+
+        <p>
+            Paste a suspicious message.
+        </p>
+
+        <p>
+            Never enter OTP, UPI PIN,
+            password, CVV or complete
+            banking credentials.
+        </p>
+
+        <form
+            id="scamForm"
+            class="form"
+        >
+
+            <div class="field">
+
+                <label>
+                    Suspicious Message
+                </label>
+
+                <textarea
+                    name="message"
+                    rows="7"
+                    required
+                    placeholder="Example: Your account will be blocked immediately. Click this link to verify..."
+                ></textarea>
+
+            </div>
+
+            <button
+                class="button"
+                type="submit"
+            >
+                Analyze Message
+            </button>
+
+        </form>
+
+        <div
+            id="scamResult"
+            class="risk-result"
+        >
+            Result will appear here.
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/scam-analyzer.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analytics</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/analytics.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">Dashboard</a>
+        <a href="/pages/defense-lab.html">Defense & UPI Lab</a>
+        <a href="/pages/risk-check.html">Risk Check</a>
+        <a href="/pages/scam-analyzer.html">Scam Analyzer</a>
+        <a href="/pages/security_alert.html">Alerts</a>
+        <a href="/pages/transactions.html">Transactions</a>
+        <a href="/pages/budget.html">Budget</a>
+        <a href="/pages/analytics.html">Analytics</a>
+        <a href="/pages/profile.html">Profile</a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Financial Analytics
+        </h1>
+
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+
+            <h3>
+                Total Income
+            </h3>
+
+            <div
+                class="value"
+                id="income"
+            >
+                ₹0.00
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Total Expense
+            </h3>
+
+            <div
+                class="value"
+                id="expense"
+            >
+                ₹0.00
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Transactions
+            </h3>
+
+            <div
+                class="value"
+                id="count"
+            >
+                0
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="hero">
+
+        <h2>
+            Expense by Category
+        </h2>
+
+        <div
+            id="categoryChart"
+        ></div>
+
+        <p
+            id="msg"
+            class="msg"
+        ></p>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/analytics.js"></script>
+
+</body>
+
+</html>

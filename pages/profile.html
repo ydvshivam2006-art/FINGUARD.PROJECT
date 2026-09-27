@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/profile.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">Dashboard</a>
+        <a href="/pages/defense-lab.html">Defense & UPI Lab</a>
+        <a href="/pages/risk-check.html">Risk Check</a>
+        <a href="/pages/scam-analyzer.html">Scam Analyzer</a>
+        <a href="/pages/security_alert.html">Alerts</a>
+        <a href="/pages/transactions.html">Transactions</a>
+        <a href="/pages/budget.html">Budget</a>
+        <a href="/pages/analytics.html">Analytics</a>
+        <a href="/pages/profile.html">Profile</a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero profile-card">
+
+        <div
+            id="avatar"
+            class="avatar"
+        >
+            U
+        </div>
+
+        <h1>
+            My Profile
+        </h1>
+
+        <form
+            id="profileForm"
+            class="form"
+        >
+
+            <div class="field">
+
+                <label>
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    readonly
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Phone
+                </label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    required
+                >
+
+            </div>
+
+            <button
+                class="button"
+                type="submit"
+            >
+                Update Profile
+            </button>
+
+        </form>
+
+        <p
+            id="msg"
+            class="msg"
+        ></p>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/profile.js"></script>
+
+</body>
+
+</html>

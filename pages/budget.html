@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Smart Budget</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/budget.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">Dashboard</a>
+        <a href="/pages/defense-lab.html">Defense & UPI Lab</a>
+        <a href="/pages/risk-check.html">Risk Check</a>
+        <a href="/pages/scam-analyzer.html">Scam Analyzer</a>
+        <a href="/pages/security_alert.html">Alerts</a>
+        <a href="/pages/transactions.html">Transactions</a>
+        <a href="/pages/budget.html">Budget</a>
+        <a href="/pages/analytics.html">Analytics</a>
+        <a href="/pages/profile.html">Profile</a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Smart Budget
+        </h1>
+
+        <form
+            id="budgetForm"
+            class="form"
+        >
+
+            <div class="field">
+
+                <label>
+                    Month
+                </label>
+
+                <input
+                    type="month"
+                    name="month_name"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Monthly Budget
+                </label>
+
+                <input
+                    type="number"
+                    name="total_budget"
+                    min="1"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+            <button
+                class="button"
+                type="submit"
+            >
+                Save Budget
+            </button>
+
+        </form>
+
+        <p
+            id="msg"
+            class="msg"
+        ></p>
+
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+
+            <h3>
+                Budget
+            </h3>
+
+            <div
+                class="value"
+                id="budgetTotal"
+            >
+                ₹0.00
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Spent
+            </h3>
+
+            <div
+                class="value"
+                id="spent"
+            >
+                ₹0.00
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Remaining
+            </h3>
+
+            <div
+                class="value"
+                id="remaining"
+            >
+                ₹0.00
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Category Allocations
+        </h2>
+
+        <div
+            id="allocations"
+            class="grid"
+        ></div>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/budget.js"></script>
+
+</body>
+
+</html>

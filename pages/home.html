@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FinGuard Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body data-private="true">
+
+<header class="top">
+
+    <div class="brand">
+        FinGuard
+    </div>
+
+    <nav class="nav">
+
+        <a href="/index.html">
+            Dashboard
+        </a>
+        <a href="/pages/defense-lab.html">
+            Defense & UPI Lab
+        </a>
+
+        <a href="/pages/risk-check.html">
+            Risk Check
+        </a>
+
+        <a href="/pages/scam-analyzer.html">
+            Scam Analyzer
+        </a>
+
+        <a href="/pages/security_alert.html">
+            Security Alerts
+        </a>
+
+        <a href="/pages/transactions.html">
+            Transactions
+        </a>
+
+        <a href="/pages/budget.html">
+            Budget
+        </a>
+
+        <a href="/pages/analytics.html">
+            Analytics
+        </a>
+
+        <a href="/pages/profile.html">
+            Profile
+        </a>
+
+        <button
+            id="logoutBtn"
+            class="logout"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Welcome,
+            <span id="welcomeName">
+                User
+            </span>
+        </h1>
+
+        <p>
+            Financial safety and personal
+            finance decision assistant.
+        </p>
+
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+
+            <h3>
+                Account
+            </h3>
+
+            <p id="accountName">
+                Loading...
+            </p>
+
+            <div
+                class="value"
+                id="accountBalance"
+            >
+                ₹0.00
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Transactions
+            </h3>
+
+            <div
+                class="value"
+                id="transactionCount"
+            >
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Security Alerts
+            </h3>
+
+            <div
+                class="value"
+                id="alertCount"
+            >
+                0
+            </div>
+
+        </div>
+
+    </section>
+
+    <p
+        id="dashMsg"
+        class="msg error"
+    ></p>
+
+    <section class="hero">
+
+        <h2>
+            FinGuard Modules
+        </h2>
+
+        <div class="grid">
+
+            <a
+                class="card module-card"
+                href="/pages/risk-check.html"
+            >
+
+                <h3>
+                    Quick Risk Check
+                </h3>
+
+                <p>
+                    Check transaction warning
+                    indicators.
+                </p>
+
+            </a>
+
+            <a
+                class="card module-card"
+                href="/pages/scam-analyzer.html"
+            >
+
+                <h3>
+                    Scam Analyzer
+                </h3>
+
+                <p>
+                    Analyze suspicious messages.
+                </p>
+
+            </a>
+
+            <a
+                class="card module-card"
+                href="/pages/transactions.html"
+            >
+
+                <h3>
+                    Transactions
+                </h3>
+
+                <p>
+                    Record and review
+                    transactions.
+                </p>
+
+            </a>
+
+            <a
+                class="card module-card"
+                href="/pages/budget.html"
+            >
+
+                <h3>
+                    Smart Budget
+                </h3>
+
+                <p>
+                    Manage monthly budget.
+                </p>
+
+            </a>
+
+            <a
+                class="card module-card"
+                href="/pages/analytics.html"
+            >
+
+                <h3>
+                    Analytics
+                </h3>
+
+                <p>
+                    View income and expense
+                    analysis.
+                </p>
+
+            </a>
+
+            <a
+                class="card module-card"
+                href="/pages/security_alert.html"
+            >
+
+                <h3>
+                    Security Alerts
+                </h3>
+
+                <p>
+                    Monitor security warnings.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/restore.js"></script>
+<script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
